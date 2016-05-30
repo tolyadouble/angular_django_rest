@@ -27,7 +27,7 @@ An Angular\Django application with RESTful API and tests.
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'wall_app2',
+            'NAME': '',
             'USER': '',
             'PASSWORD': '',
             'HOST': '',
