@@ -107,7 +107,6 @@ app.controller('ProfileController', function($scope, $http, $location, $localSto
 
     $scope.patchProfileForm = function() {
         data = {
-            'username': $localStorage.username,
             'email': $scope.user.email,
             'first_name': $scope.user.first_name,
             'last_name': $scope.user.last_name
