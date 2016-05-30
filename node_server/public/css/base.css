@@ -1,0 +1,49 @@
+blockquote {
+    border-left:none
+}
+
+.quote-badge {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.quote-box {
+    overflow: hidden;
+    margin-top: -50px;
+    padding-top: -100px;
+    border-radius: 17px;
+    background-color: #4ADFCC;
+    margin-top: 25px;
+    color:white;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+}
+
+.quotation-title {
+    margin-top: -10px;
+    font-weight: bold;
+    font-size:30px;
+    color:white;
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+.quotation-title span {
+    font-size: 10px;
+}
+
+.quote-text {
+    font-size: 19px;
+}
+
+.panel-default > .panel-heading, .btn-success {
+    background-color: #4ADFCC !important;
+    color: #000 !important;
+}
+
+.error {
+    text-align: center;
+    color: #f00;
+}
+
+.four_zero_four {
+    font-size: 40px;
+    text-align: center;
+}

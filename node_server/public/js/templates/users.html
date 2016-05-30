@@ -1,0 +1,16 @@
+<div ng-include="'static/js/templates/parts/navigation.html'"></div>
+<div ng-repeat="user in users">
+    <div class="col-md-4">
+        <blockquote class="quote-box">
+          <p class="quote-text">
+              <ul>
+                <li>Id : {{ user.id }}</li>
+                <li>Username : {{ user.username }}</li>
+                <li>First name : {{ user.first_name }}</li>
+                <li>Last name : {{ user.last_name }}</li>
+                <li>Email : {{ user.email }}</li>
+              </ul>
+          </p>
+        </blockquote>
+    </div>
+</div>
