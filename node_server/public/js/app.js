@@ -126,7 +126,7 @@ app.controller('AddPostController', function($scope, $http, $location, $localSto
     $scope.postAddPost = function() {
         data = {
             'title': $scope.post.title,
-            'body': $scope.post.body,
+            'body': $scope.post.body
         };
         $http.post(api_host + '/api/users/' + $localStorage.username + '/posts', data).then(function(response) {
             $scope.errors = {};
@@ -149,7 +149,7 @@ app.controller('LoginController', function($scope, $localStorage, $http, $locati
     $scope.postLoginForm = function() {
         data = {
             'username': $scope.username,
-            'password': $scope.password,
+            'password': $scope.password
         };
         $http.post(api_host + '/api/login', data).then(function(response) {
             $scope.errors = {};
