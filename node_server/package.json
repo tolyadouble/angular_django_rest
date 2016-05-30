@@ -1,15 +1,24 @@
 {
   "name": "wall_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Angular + Django example.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "tolya.double@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.5.5",
     "ejs": "^2.4.2",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "angular-mocks": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "karma": "^0.13.22",
+    "karma-chai": "^0.1.0",
+    "karma-coverage": "^1.0.0",
+    "karma-mocha": "^1.0.1",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "ngstorage": "^0.3.10"
   }
 }

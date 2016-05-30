@@ -140,8 +140,6 @@ app.controller('AddPostController', function($scope, $http, $location, $localSto
 app.controller('MyPostsController', function($scope, $http, $localStorage) {
     $http.get(api_host + '/api/users/' + $localStorage.username + '/posts').then(function(response) {
         $scope.posts = response.data;
-    }, function errorCallback(response) {
-        $scope.errors = response.data;
     });
 });
 
