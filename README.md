@@ -4,6 +4,7 @@ An Angular\Django application with RESTful API and tests.
 * Django REST framework - on 8001 port
 * Angular node.js server - on 8002 port
 * Karma phantomjs - on 8003 port
+* HTML bootstrap
 
 # settings_local.py - for Django Application
 
