@@ -40,5 +40,5 @@ An Angular\Django application with RESTful API and tests.
 
 * Place settings_local.py in root folder
 * Setup requiremenets and node_modules
-* Run django on 8001
-* Run node server on 8002
+* Run Django on 8001
+* Run node.js server on 8002
