@@ -5,7 +5,8 @@ An Angular\Django application with RESTful API and tests.
 * Angular node.js server - on 8002 port
 * Karma phantomjs - on 8003 port
 
-# setting_local.py - for Django Application
+# settings_local.py - for Django Application
+
     # -*- coding: utf8 -*-
     import os
     
@@ -34,3 +35,10 @@ An Angular\Django application with RESTful API and tests.
             'PORT': '',
         }
     }
+
+# Basic Setup
+
+* Place settings_local.py in root folder
+* Setup requiremenets and node_modules
+* Run django on 8001
+* Run node server on 8002
