@@ -14,7 +14,7 @@ An AngularJs\Django application with RESTful API, tests, bootstrap and a bit nod
 ### Django
 1. Make virtualenv for django.
 2. In the root of the project run command `pip install -r requirements.txt`
-3. Put setting_local.py* in the root of the project.
+3. Edit and put setting_local.py* in the root of the project.
 4. To start server run command `./manage.py runserver 8002`
 5. Tests run command `coverage run --source='.' manage.py`
 6. Tests output html command - `coverage html --include=‘app/api/*’ --omit='*migrations*,*tests*'`
@@ -23,8 +23,9 @@ An AngularJs\Django application with RESTful API, tests, bootstrap and a bit nod
 1. Go to the "node_server" folder.
 2. In the root of the folder 'node_server' setup node.js dependencies `npm install`
 3. To start server run command `node app.js`
-4. Open http://127.0.0.1:8001/
-5. In the root of the folder 'node_server' run command `$PATH_TO_THE_PROJECT/node_server/node_modules/karma/bin/karma start` or `karma start` if Karma installed globally.
+4. In the root of the folder 'node_server' run command `$PATH_TO_THE_PROJECT/node_server/node_modules/karma/bin/karma start` or `karma start` if Karma installed globally.
+
+Open http://127.0.0.1:8001/
 
 # settings_local.py - for Django Application
 
