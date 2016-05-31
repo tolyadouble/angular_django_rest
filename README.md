@@ -1,10 +1,30 @@
-# Angular Django REST
-An Angular\Django application with RESTful API and tests.
+# AngularJs Django REST
+An AngularJs\Django application with RESTful API, tests, bootstrap and a bit node.js.
 
+# Versions
+* Django 1.9.6
+* AngularJs 1.5.5
+
+# Ports
 * Django REST framework - on 8001 port
-* Angular node.js server - on 8002 port
-* Karma phantomjs - on 8003 port
-* HTML bootstrap
+* AngularJs comes with node.js server - on 8002 port
+* Karma phantomjs for testing - on 8003 port
+
+# Setup
+### Django
+1. Make virtualenv for django
+2. In the root of the project run command `pip install -r requirements.txt`
+3. Put setting_local.py* in the root of the project.
+4. To start server run command `./manage.py runserver 8002`
+5. Tests run command `coverage run --source='.' manage.py`
+6. Tests output html command - `coverage html --include=‘app/api/*’ --omit='*migrations*,*tests*'`
+
+### AngularJs + Node.Js
+1. Go to the "node_server" folder.
+2. In the root of the folder 'node_server' setup node.js dependencies `npm install`
+3. To start server run command `node app.js`
+4. Open http://127.0.0.1:8001/
+5. In the root of the folder 'node_server' run command `$PATH_TO_THE_PROJECT/node_server/node_modules/karma/bin/karma start` or `karma start` if Karma installed globally.
 
 # settings_local.py - for Django Application
 
@@ -25,6 +45,12 @@ An Angular\Django application with RESTful API and tests.
         EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     else:
         EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+        
+        EMAIL_USE_TLS = True
+        EMAIL_HOST = ''
+        EMAIL_PORT = 0
+        EMAIL_HOST_USER = ''
+        EMAIL_HOST_PASSWORD = ''
     
     DATABASES = {
         'default': {
@@ -36,10 +62,3 @@ An Angular\Django application with RESTful API and tests.
             'PORT': '',
         }
     }
-
-# Basic Setup
-
-* Place settings_local.py in root folder
-* Setup requiremenets and node_modules
-* Run Django on 8001
-* Run node.js server on 8002
