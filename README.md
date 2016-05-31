@@ -17,7 +17,7 @@ Clone this repository locally.
 ### Django
 1. Make virtualenv for Django.
 2. In the root of the project run command `pip install -r requirements.txt`
-3. Edit and put setting_local.py* in the root of the project.
+3. Edit and put "settings_local.py"* in the root of the project.
 4. To start server run command `./manage.py runserver 8002`
 5. Tests run command `coverage run --source='.' manage.py`
 6. Tests output html command - `coverage html --include=‘app/api/*’ --omit='*migrations*,*tests*'`
