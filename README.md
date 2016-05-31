@@ -11,6 +11,9 @@ An AngularJs\Django application with RESTful API, tests, bootstrap and a bit Nod
 * Karma phantomjs for testing - on 8003 port.
 
 # Setup
+
+Clone this repository locally.
+
 ### Django
 1. Make virtualenv for Django.
 2. In the root of the project run command `pip install -r requirements.txt`
