@@ -1,5 +1,5 @@
 # AngularJs Django REST
-An AngularJs\Django application with RESTful API, tests, bootstrap and a bit node.js.
+An AngularJs\Django application with RESTful API, tests, bootstrap and a bit Node.Js.
 
 # Versions
 * Django 1.9.6
@@ -7,12 +7,12 @@ An AngularJs\Django application with RESTful API, tests, bootstrap and a bit nod
 
 # Ports
 * Django REST framework - on 8001 port.
-* AngularJs comes with node.js server - on 8002 port.
+* AngularJs comes with Node.Js server - on 8002 port.
 * Karma phantomjs for testing - on 8003 port.
 
 # Setup
 ### Django
-1. Make virtualenv for django.
+1. Make virtualenv for Django.
 2. In the root of the project run command `pip install -r requirements.txt`
 3. Edit and put setting_local.py* in the root of the project.
 4. To start server run command `./manage.py runserver 8002`
