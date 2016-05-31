@@ -24,9 +24,9 @@ Clone this repository locally.
 
 ### AngularJs + Node.Js
 1. Go to the "node_server" folder.
-2. In the root of the folder 'node_server' setup node.js dependencies `npm install`
+2. In the root of the folder 'node_server' setup Node.Js dependencies `npm install`
 3. To start server run command `node app.js`
-4. In the root of the folder 'node_server' run command `$PATH_TO_THE_PROJECT/node_server/node_modules/karma/bin/karma start` or `karma start` if Karma installed globally.
+4. To start tests run command `$PATH_TO_THE_PROJECT/node_server/node_modules/karma/bin/karma start` or `karma start` if Karma installed globally.
 
 Open http://127.0.0.1:8001/
 
