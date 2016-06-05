@@ -61,7 +61,7 @@ describe('testDjangoDateFilter', function() {
   });
 
   it('testDate', inject(function($filter) {
-    result = $filter('djangoDate')('2016-05-30T10:24:16.000000Z');
+    var result = $filter('djangoDate')('2016-05-30T10:24:16.000000Z');
     expect(result).to.equal(Date.parse('May 30, 2016 1:24:16 PM'));
   }));
 
@@ -374,7 +374,7 @@ describe('testLoginController', function() {
     $scope.postLoginForm();
     $httpBackend.whenPOST(api_host + '/api/login').respond(token);
     $httpBackend.flush();
-    $timeout.flush()
+    $timeout.flush();
     expect($localStorage.username).to.equal('test');
     expect($localStorage.token).to.equal(token['token']);
     expect($localStorage.username).to.equal($scope.global.username);
