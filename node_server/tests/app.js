@@ -19,6 +19,9 @@ describe('testModuleInit', function() {
 
 describe('testRouteResolves', function() {
 
+  var $localStorage;
+  var $location;
+
   beforeEach(function() {
     module('wall_app');
     inject(function(_$route_) {
@@ -91,6 +94,7 @@ describe('testMainController', function() {
 describe('testIndexController', function() {
 
   var $controller;
+  var $httpBackend;
 
   beforeEach(function() {
     module('wall_app');
@@ -131,6 +135,7 @@ describe('testIndexController', function() {
 describe('testUsersController', function() {
 
   var $controller;
+  var $httpBackend;
 
   beforeEach(function() {
     module('wall_app');
@@ -165,6 +170,8 @@ describe('testUsersController', function() {
 describe('testProfileController', function() {
 
   var $controller;
+  var $httpBackend;
+  var $localStorage;
 
   beforeEach(function() {
     module('wall_app');
@@ -256,6 +263,8 @@ describe('testProfileController', function() {
 describe('testAddPostController', function() {
 
   var $controller;
+  var $httpBackend;
+  var $localStorage;
 
   beforeEach(function() {
     module('wall_app');
@@ -308,6 +317,8 @@ describe('testAddPostController', function() {
 describe('testMyPostsController', function() {
 
   var $controller;
+  var $httpBackend;
+  var $localStorage;
 
   beforeEach(function() {
     module('wall_app');
@@ -349,6 +360,8 @@ describe('testMyPostsController', function() {
 describe('testLoginController', function() {
 
   var $controller;
+  var $httpBackend;
+  var $localStorage;
 
   beforeEach(function() {
     module('wall_app');
@@ -402,6 +415,8 @@ describe('testLoginController', function() {
 describe('testSignupController', function() {
 
   var $controller;
+  var $httpBackend;
+  var $localStorage;
 
   beforeEach(function() {
     module('wall_app');
