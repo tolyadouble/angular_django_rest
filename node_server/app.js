@@ -9,7 +9,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.get('*', function(req, res){
-    res.render('index.html');
+  res.render('index.html');
 });
 
 app.listen(port, '127.0.0.1');
