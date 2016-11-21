@@ -1,4 +1,6 @@
 settings_local.py
 db.sqlite3
 node_server/node_modules/*
+node_server/coverage/*
+htmlcov/*
 .coverage
