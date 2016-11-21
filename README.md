@@ -19,8 +19,8 @@ Clone this repository locally.
 2. In the root of the project run command `pip install -r requirements.txt`
 3. Edit and put "settings_local.py"* in the root of the project.
 4. To start server run command `./manage.py runserver 8002`
-5. Tests run command `coverage run --source='.' manage.py`
-6. Tests output html command - `coverage html --include=‘app/api/*’ --omit='*migrations*,*tests*'`
+5. Tests run command `coverage run --source='.' manage.py test`
+6. Tests output html command - `coverage html --omit='*migrations*,*tests*,*apps.py,*wsgi.py,*settings_local.py'`
 
 ### AngularJs + Node.Js
 1. Go to the "node_server" folder.
