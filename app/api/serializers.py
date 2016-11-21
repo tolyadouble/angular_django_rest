@@ -18,26 +18,29 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username', 'email', 'first_name', 'last_name', 'password', 'confirm_password',)
 
-    def create(self, validated_data):
-        password = validated_data.get('password', None)
-        confirm_password = validated_data.get('confirm_password', None)
+    def validate(self, attrs):
+        password = attrs.get('password', None)
+        confirm_password = attrs.get('confirm_password', None)
         if password and confirm_password and password == confirm_password:
-            validated_data.pop('password')
-            validated_data.pop('confirm_password')
-            user = User.objects.create_user(**validated_data)
-            user.set_password(password)
-            user.save()
-            send_mail(
-                'Hello, Welcome to the Wall APP ',
-                'Here is the message.',
-                'messanger@web_app.com',
-                [user.email],
-                fail_silently=False
-            )
-            return user
+            return attrs
         raise ValidationError({
-                'password': ['Passwords should be the same.']
+            'password': ['Passwords should be the same.']
         })
+
+    def create(self, validated_data):
+        password = validated_data.pop('password')
+        validated_data.pop('confirm_password')
+        user = User.objects.create_user(**validated_data)
+        user.set_password(password)
+        user.save()
+        send_mail(
+            'Hello, Welcome to the Wall APP ',
+            'Here is the message.',
+            'messanger@web_app.com',
+            [user.email],
+            fail_silently=False
+        )
+        return user
 
 
 class UserDetailSerializer(serializers.ModelSerializer):
