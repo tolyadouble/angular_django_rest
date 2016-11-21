@@ -55,14 +55,3 @@ Open http://127.0.0.1:8001/
         EMAIL_PORT = 0
         EMAIL_HOST_USER = ''
         EMAIL_HOST_PASSWORD = ''
-    
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': '',
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-            'PORT': '',
-        }
-    }
