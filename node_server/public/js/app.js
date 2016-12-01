@@ -85,25 +85,81 @@ app.filter('djangoDate', function() {
   };
 });
 
+app.factory('userFactory', ['$http', function($http) {
+
+    var urlBase = api_host + '/api/users';
+    var dataFactory = {};
+
+    dataFactory.createUser = function(data) {
+      return $http.post(urlBase, data)
+    };
+
+    dataFactory.getUser = function(username) {
+      return $http.get(urlBase + '/' + username);
+    };
+
+    dataFactory.getUsers = function() {
+      return $http.get(urlBase);
+    };
+
+    dataFactory.patchUser = function(username, data) {
+      return $http.patch(urlBase + '/' + username, data)
+    };
+
+    dataFactory.getUserPosts = function(username) {
+      return $http.get(urlBase + '/' + username + '/posts')
+    };
+
+    dataFactory.postUserPosts = function(username, data) {
+      return $http.post(urlBase + '/' + username + '/posts', data)
+    };
+
+    return dataFactory;
+}]);
+
+app.factory('postFactory', ['$http', function($http) {
+
+    var urlBase = api_host + '/api/posts';
+    var dataFactory = {};
+
+    dataFactory.getPosts = function() {
+      return $http.get(urlBase);
+    };
+
+    return dataFactory;
+}]);
+
+app.factory('loginFactory', ['$http', function($http) {
+
+    var urlBase = api_host + '/api/login';
+    var dataFactory = {};
+
+    dataFactory.postLogin = function(data) {
+      return $http.post(urlBase, data);
+    };
+
+    return dataFactory;
+}]);
+
 app.controller('MainController', function($scope, $localStorage) {
   $scope.global = {};
   $scope.global = $localStorage;
 });
 
-app.controller('IndexController', function($scope, $http) {
-  $http.get(api_host + '/api/posts').then(function(response) {
+app.controller('IndexController', function($scope, postFactory) {
+  postFactory.getPosts().then(function(response) {
     $scope.posts = response.data;
   });
 });
 
-app.controller('UsersController', function($scope, $http) {
-  $http.get(api_host + '/api/users').then(function(response) {
+app.controller('UsersController', function($scope, userFactory) {
+  userFactory.getUsers().then(function(response) {
     $scope.users = response.data;
   });
 });
 
-app.controller('ProfileController', function($scope, $http, $location, $localStorage) {
-  $http.get(api_host + '/api/users/' + $localStorage.username).then(function(response) {
+app.controller('ProfileController', function($scope, userFactory, $location, $localStorage) {
+  userFactory.getUser($localStorage.username).then(function(response) {
     $scope.user = response.data;
   });
 
@@ -113,7 +169,7 @@ app.controller('ProfileController', function($scope, $http, $location, $localSto
       'first_name': $scope.user.first_name,
       'last_name': $scope.user.last_name
     };
-    $http.patch(api_host + '/api/users/' + $localStorage.username, data).then(function() {
+    userFactory.patchUser($localStorage.username, data).then(function() {
       $scope.errors = {};
       $location.path('/');
     }, function errorCallback(response) {
@@ -122,7 +178,7 @@ app.controller('ProfileController', function($scope, $http, $location, $localSto
   };
 });
 
-app.controller('AddPostController', function($scope, $http, $location, $localStorage) {
+app.controller('AddPostController', function($scope, userFactory, $location, $localStorage) {
   $scope.post = {};
 
   $scope.postAddPost = function() {
@@ -130,7 +186,7 @@ app.controller('AddPostController', function($scope, $http, $location, $localSto
       'title': $scope.post.title,
       'body': $scope.post.body
     };
-    $http.post(api_host + '/api/users/' + $localStorage.username + '/posts', data).then(function() {
+    userFactory.postUserPosts($localStorage.username, data).then(function() {
       $scope.errors = {};
       $location.path('/');
     }, function errorCallback(response) {
@@ -139,13 +195,13 @@ app.controller('AddPostController', function($scope, $http, $location, $localSto
   };
 });
 
-app.controller('MyPostsController', function($scope, $http, $localStorage) {
-  $http.get(api_host + '/api/users/' + $localStorage.username + '/posts').then(function(response) {
+app.controller('MyPostsController', function($scope, userFactory, $localStorage) {
+  userFactory.getUserPosts($localStorage.username).then(function(response) {
     $scope.posts = response.data;
   });
 });
 
-app.controller('LoginController', function($scope, $localStorage, $http, $location, $timeout) {
+app.controller('LoginController', function($scope, $localStorage, loginFactory, $location, $timeout) {
   $scope.errors = {};
 
   $scope.postLoginForm = function() {
@@ -153,7 +209,7 @@ app.controller('LoginController', function($scope, $localStorage, $http, $locati
       'username': $scope.username,
       'password': $scope.password
     };
-    $http.post(api_host + '/api/login', data).then(function(response) {
+    loginFactory.postLogin(data).then(function(response) {
       $scope.errors = {};
       $localStorage.username = $scope.username;
       $localStorage.token = response.data.token;
@@ -167,7 +223,7 @@ app.controller('LoginController', function($scope, $localStorage, $http, $locati
   };
 });
 
-app.controller('SignupController', function($scope, $localStorage, $http, $location) {
+app.controller('SignupController', function($scope, $localStorage, userFactory, $location) {
   $scope.errors = {};
 
   $scope.postSignup = function() {
@@ -179,7 +235,7 @@ app.controller('SignupController', function($scope, $localStorage, $http, $locat
       'password': $scope.password,
       'confirm_password': $scope.confirm_password
     };
-    $http.post(api_host + '/api/users', data).then(function() {
+    userFactory.createUser(data).then(function() {
       $scope.errors = {};
       $location.path('/login');
     }, function errorCallback(response) {
